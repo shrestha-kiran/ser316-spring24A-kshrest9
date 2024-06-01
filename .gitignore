@@ -1,0 +1,29 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# IntelliJ IDEA files
+.idea/
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Gradle files
+# .gradle/
+# build/
+
+# Local configuration file (for example, application properties)
+application.properties
+
+# macOS specific files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Exclude the gradle wrapper jar
+gradle-wrapper.jar
