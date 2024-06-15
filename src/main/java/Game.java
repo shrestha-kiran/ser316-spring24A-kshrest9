@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+
 /**
  * Class for handling some game logic for hangman game.
  * Every game starts with a score of 10 and the points are reduced based on the description of "makeGuess". Points holds the current score for one game.
@@ -13,7 +14,7 @@ public class Game {
 
     /** Holds the points for the game. */
     public int points;
-    
+
     /** Holds the round of the game. */
     int round;
 
@@ -23,13 +24,11 @@ public class Game {
     /** Holds the answer for the current game. */
     String answer;
 
-
-    /** The path to the file holding the leaderboard.*/
+    /** The path to the file holding the leaderboard. */
     private static final String LEADERBOARD_PATH = "leaderboard.txt";
     private String leaderboard = LEADERBOARD_PATH;
 
-
-    /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over}*/
+    /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over} */
     protected int gameStatus = 0;
 
     // all things that were already guessed, needs to be cleared for each game
@@ -42,26 +41,25 @@ public class Game {
      * Gets the name for the game.
      * @return String The name.
      */
-    public String getName() {return this.name;}
+    public String getName() { return this.name; }
 
     /**
      * Gets the answer for the game.
      * @return String The Answer.
      */
-    public String getAnswer() {return this.answer.toLowerCase();}
+    public String getAnswer() { return this.answer.toLowerCase(); }
 
     /**
      * Gets the current status of the game.
      * @return
      */
-    public int getGameStatus() {return this.gameStatus;}
+    public int getGameStatus() { return this.gameStatus; }
 
     /**
      * Sets the score for the game.
      * @param points
      */
-    public void setPoints(int points) {this.points = points;}
-
+    public void setPoints(int points) { this.points = points; }
 
     /**
      * Gets the score for the game.
@@ -93,7 +91,6 @@ public class Game {
         return result;
     }
 
-    
     /**
      * Counts how often a letter occurs
      * @param letter
@@ -101,7 +98,7 @@ public class Game {
     public int countLetters(char letter) {
         int count = 0;
         int i = 0;
-        while(this.getAnswer().indexOf(letter, i) >= 0){
+        while (this.getAnswer().indexOf(letter, i) >= 0) {
             i = this.getAnswer().indexOf(letter, i) + 1;
             count++;
         }
@@ -112,18 +109,17 @@ public class Game {
      * Constructs a new game with a random word.
      * @param name
      */
-    public Game(String name){
+    public Game(String name) {
         this.name = name;
         setRandomWord();
         setPoints(5);
-
     }
 
     /**
      * Constructs a new game with a given word and given name.
      * @param name
      */
-    public Game(String fixedWord, String name){
+    public Game(String fixedWord, String name) {
         this.name = "Anna";
         this.answer = fixedWord;
         setPoints(10);
@@ -132,7 +128,7 @@ public class Game {
     /**
      * Constructs a new game with no arguments, empty name and answer
      */
-    public Game(){
+    public Game() {
         this.name = "";
         this.answer = "";
         setPoints(10);
@@ -141,7 +137,7 @@ public class Game {
     /**
      * Sets the name and answers of an already existing game and clears the guesses
      */
-    public void initGame(String answer, String name){
+    public void initGame(String answer, String name) {
         this.name = name;
         this.answer = answer;
         this.gameStatus = 0;
@@ -180,7 +176,6 @@ public class Game {
      *  Guess was already used, reduce points by 2 and return 4.0 (checked before 4.1 error). Guess still counts toward made guesses.
      *  Guess includes numbers/symbols etc. (so more than just letters) reduce points by 3 and return 4.1, the guess is still added to the list of guesses
      *
-     *
      * Score can also be negative, that is no problem.
      * When the player guessed 10 times and did not guess the word set the game to game over (status) and return 5.0 (no matter if there was another error).
      * If the player guesses again, even though game status is won or game over return 5.1.
@@ -198,13 +193,10 @@ public class Game {
      */
     public void setRandomWord() {
 
-        String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear","lioncub", };
+        String[] animals = { "dog", "horse", "pony", "cat", "lion", "bear", "lioncub", };
 
         int randomNum = 0;
         randomNum = (int) (Math.floor(Math.random() * (100 - 2 + 1) + 2) % animals.length);
         this.answer = animals[randomNum];
     }
-
-
-
 }
