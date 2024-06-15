@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="guessTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-06-15T09:12:44" hostname="KREST" time="0.003">
+<testsuite name="guessTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-06-15T10:12:38" hostname="KREST" time="0.004">
   <properties/>
-  <testcase name="testIncorrectGuessTooLong" classname="guessTest" time="0.0"/>
+  <testcase name="testIncorrectGuessTooLong" classname="guessTest" time="0.001"/>
   <testcase name="testIncorrectLetterGuess" classname="guessTest" time="0.0"/>
-  <testcase name="testCorrectGuess" classname="guessTest" time="0.001"/>
+  <testcase name="testCorrectGuess" classname="guessTest" time="0.0"/>
   <testcase name="testGuessAlreadyUsed" classname="guessTest" time="0.0"/>
   <testcase name="testGameOverAfterTenGuesses" classname="guessTest" time="0.001"/>
-  <testcase name="testCorrectLetterGuess" classname="guessTest" time="0.001"/>
+  <testcase name="testCorrectLetterGuess" classname="guessTest" time="0.0"/>
   <testcase name="testGuessWithSymbols" classname="guessTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

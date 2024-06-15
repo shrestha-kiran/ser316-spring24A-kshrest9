@@ -1,7 +1,7 @@
-// plugins {
-//     id "com.github.spotbugs" version "5.0.12"
-//     id "checkstyle"
-// }
+ plugins {
+     id "com.github.spotbugs" version "5.0.12"
+     id "checkstyle"
+ }
 
 apply plugin: 'application'
 
@@ -51,14 +51,14 @@ test {
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
-// spotbugsMain {
-//     reports {
-//         xml.enabled = false
-//         html.enabled = true
-//     }
-// }
-// spotbugs {
-//     ignoreFailures = true
-//     showProgress = true
-//     effort = 'max'
-// }
+ spotbugsMain {
+     reports {
+         xml.enabled = false
+         html.enabled = true
+     }
+ }
+ spotbugs {
+     ignoreFailures = true
+     showProgress = true
+     effort = 'max'
+ }
