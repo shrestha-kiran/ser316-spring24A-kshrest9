@@ -13,8 +13,8 @@
 .settings/
 
 # Gradle files
-# .gradle/
-# build/
+.gradle/
+build/
 
 # Local configuration file (for example, application properties)
 application.properties
