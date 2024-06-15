@@ -25,5 +25,3 @@ application.properties
 # Windows thumbnail cache files
 Thumbs.db
 
-# Exclude the gradle wrapper jar
-gradle-wrapper.jar
