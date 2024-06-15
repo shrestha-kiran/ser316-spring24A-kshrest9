@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 /**
  * Class for handling some game logic for hangman game.
  * Every game starts with a score of 10 and the points are reduced based on the description of "makeGuess". Points holds the current score for one game.
  * Game is lost when the user made 10 guesses and did not guess the word.
  *
+ * File: Game.java
+ * Author: Kiran Shrestha
+ * Date: 2024-06-15
  */
 public class Game {
 
