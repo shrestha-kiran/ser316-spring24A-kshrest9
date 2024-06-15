@@ -68,25 +68,27 @@ public class Game {
 
     /**
      * Counts the number of letters that have been guessed correctly during the game.
-     * The number of correct letter guesses will be returned in result. 
+     * The number of correct letter guesses will be returned in result.
      */
     public int countCorrectLetters() {
         int result = 0;
         if (!guesses.isEmpty()) {
-            for(int i = 0; i < this.answer.length(); i++) {
+            for (int i = 0; i < this.answer.length(); i++) {
                 String current = String.valueOf(this.answer.charAt(i));
                 if (guesses.contains(current)) {
                     System.out.print(this.answer.charAt(i));
-                }
-                else {
+                    result++;  // Update result variable
+                } else {
                     System.out.print('_');
                 }
             }
             System.out.println();
+        } else {
+            return 0;
         }
-        else return 0;
         return result;
     }
+
     
     /**
      * Counts how often a letter occurs
