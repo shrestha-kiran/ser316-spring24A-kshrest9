@@ -58,15 +58,16 @@ public class guessTest {
             game.makeGuess("x" + i);
         }
         double response = game.makeGuess("lion");
-        assertEquals(5.0, response, 0.0);
-        assertEquals(2, game.getGameStatus());
+        assertEquals(5.0, response, 0.0);  // Ensure this checks for game over after 10 guesses
+        assertEquals(2, game.getGameStatus());  // Check game status is game over
     }
+
 
     @Test
     public void testIncorrectGuessTooLong() {
         double response = game.makeGuess("elephant");
         assertEquals(2.1, response, 0.0);
-        assertTrue(game.getPoints() < 10); // points should be reduced
-        assertEquals(0, game.getGameStatus()); // Game in progress
+        assertTrue(game.getPoints() < 10);
+        assertEquals(0, game.getGameStatus());
     }
 }

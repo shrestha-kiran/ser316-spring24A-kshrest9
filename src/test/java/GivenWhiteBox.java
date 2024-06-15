@@ -11,9 +11,6 @@ public class GivenWhiteBox {
         game = new Game("lion", "TestPlayer");
     }
 
-    /**
-     * Test sequence for Node Coverage: Enter -> Node 1 -> Node 8 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersEmptyGuesses() {
         game.guesses.clear();
@@ -21,9 +18,6 @@ public class GivenWhiteBox {
         assertEquals(0, result);
     }
 
-    /**
-     * Test sequence for Node Coverage: Enter -> Node 1 -> Node 2 -> Node 3 -> Node 4 -> Node 5 -> Node 7 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersAllCorrect() {
         game.guesses.clear();
@@ -32,12 +26,9 @@ public class GivenWhiteBox {
         game.guesses.add("o");
         game.guesses.add("n");
         int result = game.countCorrectLetters();
-        assertEquals(4, result); // Update if necessary
+        assertEquals(4, result);
     }
 
-    /**
-     * Test sequence for Node Coverage: Enter -> Node 1 -> Node 2 -> Node 3 -> Node 4 -> Node 6 -> Node 7 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersAllIncorrect() {
         game.guesses.clear();
@@ -48,9 +39,6 @@ public class GivenWhiteBox {
         assertEquals(0, result);
     }
 
-    /**
-     * Test sequence for Edge Coverage: Enter -> Node 1 -> Node 8 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersEdge1() {
         game.guesses.clear();
@@ -58,9 +46,6 @@ public class GivenWhiteBox {
         assertEquals(0, result);
     }
 
-    /**
-     * Test sequence for Edge Coverage: Enter -> Node 1 -> Node 2 -> Node 3 -> Node 4 -> Node 5 -> Node 3 (loop back) -> Node 7 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersEdge2() {
         game.guesses.clear();
@@ -69,12 +54,9 @@ public class GivenWhiteBox {
         game.guesses.add("o");
         game.guesses.add("n");
         int result = game.countCorrectLetters();
-        assertEquals(4, result); // Update if necessary
+        assertEquals(4, result);
     }
 
-    /**
-     * Test sequence for Edge Coverage: Enter -> Node 1 -> Node 2 -> Node 3 -> Node 4 -> Node 6 -> Node 3 (loop back) -> Node 7 -> Node 9
-     */
     @Test
     public void testCountCorrectLettersEdge3() {
         game.guesses.clear();
@@ -85,14 +67,12 @@ public class GivenWhiteBox {
         assertEquals(0, result);
     }
 
-    // Test for countLetters() method
     @Test
     public void testCountLetters() {
         int count = game.countLetters('l');
         assertEquals(1, count);
     }
 
-    // Test for initGame() method
     @Test
     public void testInitGame() {
         game.initGame("tiger", "NewPlayer");
@@ -104,14 +84,12 @@ public class GivenWhiteBox {
         assertEquals(0, game.getGameStatus());
     }
 
-    // Test for startGame()
     @Test
     public void startGame() {
         Game game = new Game("lion", "Dr. M");
         assertEquals(10, game.getPoints());
     }
 
-    // Additional tests for makeGuess() method
     @Test
     public void testMakeGuessCorrectWord() {
         game.initGame("lion", "Player");
@@ -183,8 +161,8 @@ public class GivenWhiteBox {
             game.makeGuess("x" + i);
         }
         double response = game.makeGuess("lion");
-        assertEquals(5.0, response, 0.0);
-        assertEquals(2, game.getGameStatus());
+        assertEquals(5.0, response, 0.0);  // Ensure this checks for game over after 10 guesses
+        assertEquals(2, game.getGameStatus());  // Check game status is game over
     }
 
     @Test
