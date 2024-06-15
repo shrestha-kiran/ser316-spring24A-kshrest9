@@ -25,7 +25,9 @@ public class Game {
 
 
     /** The path to the file holding the leaderboard.*/
-    private String leaderboard = "leaderboard.txt";
+    private static final String LEADERBOARD_PATH = "leaderboard.txt";
+    private String leaderboard = LEADERBOARD_PATH;
+
 
     /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over}*/
     protected int gameStatus = 0;
