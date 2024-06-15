@@ -23,6 +23,12 @@ dependencies {
     implementation files('cls/')
 }
 
+test {
+    exclude '**/BlackBoxGiven.class'
+}
+
+
+
 // apply plugin: 'checkstyle'
 // checkstyle {
 //   // Keep checkstyle a little quieter
