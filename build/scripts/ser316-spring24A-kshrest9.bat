@@ -17,7 +17,7 @@
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
-@rem  MysteryWordStudents startup script for Windows
+@rem  ser316-spring24A-kshrest9 startup script for Windows
 @rem
 @rem ##########################################################################
 
@@ -32,7 +32,7 @@ set APP_HOME=%DIRNAME%..
 @rem Resolve any "." and ".." in APP_HOME to make it shorter.
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
-@rem Add default JVM options here. You can also use JAVA_OPTS and MYSTERY_WORD_STUDENTS_OPTS to pass JVM options to this script.
+@rem Add default JVM options here. You can also use JAVA_OPTS and SER316_SPRING24_A_KSHREST9_OPTS to pass JVM options to this script.
 set DEFAULT_JVM_OPTS=
 
 @rem Find java.exe
@@ -67,20 +67,20 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\MysteryWordStudents.jar;%APP_HOME%\lib\cls;%APP_HOME%\lib\junit-4.12.jar;%APP_HOME%\lib\hamcrest-core-1.3.jar
+set CLASSPATH=%APP_HOME%\lib\ser316-spring24A-kshrest9.jar;%APP_HOME%\lib\cls;%APP_HOME%\lib\junit-4.12.jar;%APP_HOME%\lib\hamcrest-core-1.3.jar
 
 
-@rem Execute MysteryWordStudents
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %MYSTERY_WORD_STUDENTS_OPTS%  -classpath "%CLASSPATH%" Main %*
+@rem Execute ser316-spring24A-kshrest9
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SER316_SPRING24_A_KSHREST9_OPTS%  -classpath "%CLASSPATH%" Main %*
 
 :end
 @rem End local scope for the variables with windows NT shell
 if "%ERRORLEVEL%"=="0" goto mainEnd
 
 :fail
-rem Set variable MYSTERY_WORD_STUDENTS_EXIT_CONSOLE if you need the _script_ return code instead of
+rem Set variable SER316_SPRING24_A_KSHREST9_EXIT_CONSOLE if you need the _script_ return code instead of
 rem the _cmd.exe /c_ return code!
-if  not "" == "%MYSTERY_WORD_STUDENTS_EXIT_CONSOLE%" exit 1
+if  not "" == "%SER316_SPRING24_A_KSHREST9_EXIT_CONSOLE%" exit 1
 exit /b 1
 
 :mainEnd
