@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="guessTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-07-10T02:31:57" hostname="KREST" time="0.006">
+<testsuite name="guessTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-07-10T02:49:02" hostname="KREST" time="0.004">
   <properties/>
   <testcase name="testIncorrectGuessTooLong" classname="guessTest" time="0.001"/>
-  <testcase name="testIncorrectLetterGuess" classname="guessTest" time="0.001"/>
+  <testcase name="testIncorrectLetterGuess" classname="guessTest" time="0.0"/>
   <testcase name="testCorrectGuess" classname="guessTest" time="0.0"/>
   <testcase name="testGuessAlreadyUsed" classname="guessTest" time="0.0"/>
   <testcase name="testGameOverAfterTenGuesses" classname="guessTest" time="0.001"/>

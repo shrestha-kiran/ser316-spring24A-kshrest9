@@ -5,24 +5,41 @@ public class Main {
     static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
 
     public static void main(String[] args) {
-        System.out.println("Getting started");
-        Game game = new Game.Builder().setName("Student").build();
-        System.out.println("Current word: " + game.getAnswer());
-        System.out.println(game.makeGuess("a"));
-        System.out.println("Automatic guess a");
+        boolean keepPlaying = true;
 
-        // Rough game play
-        Game newgame = new Game.Builder().setName("Dr. M.").build();
-        System.out.println("Make a guess: ");
-        while (newgame.getGameStatus() == 0) {
-            String message = scanner.nextLine();
-            System.out.println(newgame.makeGuess(message));
-            System.out.println("Score: " + newgame.getPoints());
-            int correctLetters = newgame.countCorrectLetters();  // SER316 TASK 2 SPOTBUGS FIX
+        System.out.println("Welcome to the Hangman Game!");
+
+        while (keepPlaying) {
+            Game game = new Game.Builder().setName("Player").build();
+            playGame(game);
+
+            System.out.println("Do you want to play another round? (yes/no): ");
+            String response = scanner.nextLine().trim().toLowerCase();
+            if (!response.equals("yes")) {
+                keepPlaying = false;
+            }
         }
 
-        // Demonstrate game reset
-        newgame.resetGame();
-        System.out.println("Game reset. New word: " + newgame.getAnswer());
+        System.out.println("Thank you for playing! Goodbye!");
+    }
+
+    private static void playGame(Game game) {
+        System.out.println("Starting a new game...");
+        System.out.println("Current word: " + game.getAnswer());
+
+        while (game.getGameStatus() == 0) {
+            System.out.println("Make a guess: ");
+            String guess = scanner.nextLine();
+            double result = game.makeGuess(guess);
+            System.out.println("Result: " + result);
+            System.out.println("Current points: " + game.getPoints());
+            System.out.println("Correct letters count: " + game.countCorrectLetters());
+        }
+
+        if (game.getGameStatus() == 1) {
+            System.out.println("Congratulations! You've won! The word was: " + game.getAnswer());
+        } else {
+            System.out.println("Game over! You've lost! The word was: " + game.getAnswer());
+        }
     }
 }
