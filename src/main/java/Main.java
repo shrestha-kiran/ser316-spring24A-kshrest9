@@ -4,7 +4,6 @@ import java.nio.charset.StandardCharsets;
 public class Main {
     static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
     public static void main(String[] args) {
-        // Just some calls
         System.out.println("Getting started");
         Game game = new Game("Student");
         System.out.println("Current word: " + game.getAnswer());
@@ -20,5 +19,9 @@ public class Main {
             System.out.println("Score: " + newgame.getPoints());
             int correctLetters = newgame.countCorrectLetters();  // SER316 TASK 2 SPOTBUGS FIX
         }
+
+        // Demonstrate game reset
+        newgame.resetGame();
+        System.out.println("Game reset. New word: " + newgame.getAnswer());
     }
 }

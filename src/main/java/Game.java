@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Class for handling some game logic for hangman game.
@@ -12,17 +14,11 @@ public class Game {
     /** Holds the points for the game. */
     public int points;
 
-//    /** Holds the round of the game. */
-//    int round;
-
     /** Holds the player name for the game. */
     String name;
 
     /** Holds the answer for the current game. */
     String answer;
-
-//    /** The path to the file holding the leaderboard. */
-//    private String leaderboard = "leaderboard.txt";
 
     /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over} */
     protected int gameStatus = 0;
@@ -32,6 +28,77 @@ public class Game {
 
     // all answers from makeGuess that were already returned
     ArrayList<Double> answers = new ArrayList<>();
+
+    private static final List<String> WORDS = Arrays.asList("dog", "horse", "pony", "cat", "lion", "bear", "lioncub");
+    private List<String> availableWords;
+    private List<String> usedWords;
+
+    /**
+     * Constructs a new game with a random word.
+     * @param name The name of the player.
+     */
+    public Game(String name) {
+        this.name = name;
+        this.availableWords = new ArrayList<>(WORDS);
+        Collections.shuffle(this.availableWords);
+        this.usedWords = new ArrayList<>();
+        resetGame();
+        setPoints(5);
+    }
+
+    /**
+     * Constructs a new game with a given word and given name.
+     * @param fixedWord The fixed word for the game.
+     * @param name The name of the player.
+     */
+    public Game(String fixedWord, String name) {
+        this.name = name;
+        this.availableWords = new ArrayList<>(WORDS);
+        Collections.shuffle(this.availableWords);
+        this.usedWords = new ArrayList<>();
+        this.answer = fixedWord;
+        setPoints(10);
+    }
+
+    /**
+     * Constructs a new game with no arguments, empty name and answer.
+     */
+    public Game() {
+        this.name = "";
+        this.answer = "";
+        setPoints(10);
+    }
+
+    /**
+     * Sets the name and answers of an already existing game and clears the guesses.
+     * @param answer The answer to set.
+     * @param name The name of the player.
+     */
+    public void initGame(String answer, String name) {
+        this.name = name;
+        this.answer = answer;
+        this.gameStatus = 0;
+        this.guesses.clear();
+        this.answers.clear();
+        setPoints(10);
+    }
+
+    /**
+     * Resets the game with a new word, ensuring no repetition and random order.
+     */
+    public void resetGame() {
+        if (availableWords.isEmpty()) {
+            availableWords.addAll(usedWords);
+            usedWords.clear();
+            Collections.shuffle(availableWords);
+        }
+        this.answer = availableWords.remove(0);
+        usedWords.add(this.answer);
+        this.gameStatus = 0;
+        this.guesses.clear();
+        this.answers.clear();
+        setPoints(10);
+    }
 
     /**
      * Gets the name for the game.
@@ -104,50 +171,6 @@ public class Game {
             count++;
         }
         return count;
-    }
-
-    /**
-     * Constructs a new game with a random word.
-     * @param name The name of the player.
-     */
-    public Game(String name) {
-        this.name = name;
-        setRandomWord();
-        setPoints(5);
-    }
-
-    /**
-     * Constructs a new game with a given word and given name.
-     * @param fixedWord The fixed word for the game.
-     * @param name The name of the player.
-     */
-    public Game(String fixedWord, String name) {
-        this.name = name;
-        this.answer = fixedWord;
-        setPoints(10);
-    }
-
-    /**
-     * Constructs a new game with no arguments, empty name and answer.
-     */
-    public Game() {
-        this.name = "";
-        this.answer = "";
-        setPoints(10);
-    }
-
-    /**
-     * Sets the name and answers of an already existing game and clears the guesses.
-     * @param answer The answer to set.
-     * @param name The name of the player.
-     */
-    public void initGame(String answer, String name) {
-        this.name = name;
-        this.answer = answer;
-        this.gameStatus = 0;
-        this.guesses.clear();
-        this.answers.clear();
-        setPoints(10);
     }
 
     /**
@@ -231,15 +254,5 @@ public class Game {
         points -= 1;
         answers.add(2.0);
         return 2.0;
-    }
-
-    /**
-     * Pulls out a random animal and sets it as answer.
-     */
-    public void setRandomWord() {
-        String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear", "lioncub"};
-
-        int randomNum = (int) (Math.floor(Math.random() * (100 - 2 + 1) + 2) % animals.length);
-        this.answer = animals[randomNum];
     }
 }

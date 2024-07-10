@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GivenWhiteBox" tests="18" skipped="0" failures="0" errors="0" timestamp="2024-06-15T10:12:38" hostname="KREST" time="0.017">
+<testsuite name="GivenWhiteBox" tests="18" skipped="0" failures="0" errors="0" timestamp="2024-07-10T02:21:10" hostname="KREST" time="0.016">
   <properties/>
-  <testcase name="startGame" classname="GivenWhiteBox" time="0.004"/>
+  <testcase name="startGame" classname="GivenWhiteBox" time="0.005"/>
   <testcase name="testCountCorrectLettersAllIncorrect" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testCountLetters" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testCountCorrectLettersAllCorrect" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testCountCorrectLettersEmptyGuesses" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessWithSymbols" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessAfterWin" classname="GivenWhiteBox" time="0.001"/>
-  <testcase name="testCountCorrectLettersEdge1" classname="GivenWhiteBox" time="0.0"/>
+  <testcase name="testCountCorrectLettersEdge1" classname="GivenWhiteBox" time="0.001"/>
   <testcase name="testCountCorrectLettersEdge2" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testCountCorrectLettersEdge3" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessAlreadyUsed" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessCorrectLetter" classname="GivenWhiteBox" time="0.0"/>
-  <testcase name="testInitGame" classname="GivenWhiteBox" time="0.001"/>
+  <testcase name="testInitGame" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessCorrectWord" classname="GivenWhiteBox" time="0.0"/>
-  <testcase name="testMakeGuessTooLong" classname="GivenWhiteBox" time="0.0"/>
-  <testcase name="testMakeGuessAfterGameOver" classname="GivenWhiteBox" time="0.004"/>
-  <testcase name="testMakeGuessIncorrectLetter" classname="GivenWhiteBox" time="0.001"/>
+  <testcase name="testMakeGuessTooLong" classname="GivenWhiteBox" time="0.001"/>
+  <testcase name="testMakeGuessAfterGameOver" classname="GivenWhiteBox" time="0.003"/>
+  <testcase name="testMakeGuessIncorrectLetter" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testMakeGuessTooShort" classname="GivenWhiteBox" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
