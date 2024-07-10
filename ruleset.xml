@@ -33,6 +33,10 @@
     </properties>
 </rule>
 <rule ref="category/java/bestpractices.xml/LooseCoupling" />
+<rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
+<rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals" />
+<rule ref="category/java/codestyle.xml/LongVariable" />
+<rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts" />
 
 
 </ruleset>

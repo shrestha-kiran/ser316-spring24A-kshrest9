@@ -8,7 +8,7 @@ public class guessTest {
 
     @Before
     public void setUp() {
-        game = new Game("lion", "TestPlayer");
+        game = new Game.Builder().setFixedWord("lion").setName("TestPlayer").build();
     }
 
     @Test
@@ -61,7 +61,6 @@ public class guessTest {
         assertEquals(5.0, response, 0.0);  // Ensure this checks for game over after 10 guesses
         assertEquals(2, game.getGameStatus());  // Check game status is game over
     }
-
 
     @Test
     public void testIncorrectGuessTooLong() {

@@ -8,7 +8,7 @@ public class GivenWhiteBox {
 
     @Before
     public void setUp() throws Exception {
-        game = new Game("lion", "TestPlayer");
+        game = new Game.Builder().setFixedWord("lion").setName("TestPlayer").build();
     }
 
     @Test
@@ -86,7 +86,7 @@ public class GivenWhiteBox {
 
     @Test
     public void startGame() {
-        Game game = new Game("lion", "Dr. M");
+        Game game = new Game.Builder().setFixedWord("lion").setName("Dr. M").build();
         assertEquals(10, game.getPoints());
     }
 

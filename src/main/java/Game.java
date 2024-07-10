@@ -34,39 +34,47 @@ public class Game {
     private List<String> usedWords;
 
     /**
-     * Constructs a new game with a random word.
-     * @param name The name of the player.
+     * Private constructor for Game, used by the Builder.
      */
-    public Game(String name) {
-        this.name = name;
+    private Game(Builder builder) {
+        this.name = builder.name;
         this.availableWords = new ArrayList<>(WORDS);
         Collections.shuffle(this.availableWords);
         this.usedWords = new ArrayList<>();
-        resetGame();
-        setPoints(5);
+        if (builder.fixedWord == null || builder.fixedWord.isEmpty()) {
+            resetGame();
+        } else {
+            this.answer = builder.fixedWord;
+        }
+        setPoints(builder.points);
     }
 
     /**
-     * Constructs a new game with a given word and given name.
-     * @param fixedWord The fixed word for the game.
-     * @param name The name of the player.
+     * Builder class for Game.
      */
-    public Game(String fixedWord, String name) {
-        this.name = name;
-        this.availableWords = new ArrayList<>(WORDS);
-        Collections.shuffle(this.availableWords);
-        this.usedWords = new ArrayList<>();
-        this.answer = fixedWord;
-        setPoints(10);
-    }
+    public static class Builder {
+        private String name;
+        private String fixedWord;
+        private int points = 10;
 
-    /**
-     * Constructs a new game with no arguments, empty name and answer.
-     */
-    public Game() {
-        this.name = "";
-        this.answer = "";
-        setPoints(10);
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setFixedWord(String fixedWord) {
+            this.fixedWord = fixedWord;
+            return this;
+        }
+
+        public Builder setPoints(int points) {
+            this.points = points;
+            return this;
+        }
+
+        public Game build() {
+            return new Game(this);
+        }
     }
 
     /**
